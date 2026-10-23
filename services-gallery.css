@@ -1,0 +1,332 @@
+/* ═══════════════════════════════════════════════════════════════════
+   BULL CREEK DENTAL — LIGHT LUXURY SERVICES SHOWCASE
+   Exact Layout from sections-component/service-section in Light Theme
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --sg-accent: #1EAE9F;
+  --sg-accent-light: #20C7BA;
+  --sg-accent-rgb: 30, 174, 159;
+  --sg-gold: #C29358;
+  --sg-bg-light: #F4FAF9;
+  --sg-card-border: rgba(30, 174, 159, 0.22);
+}
+
+/* ── Section Wrapper ── */
+.craft-h {
+  position: relative;
+  background: var(--sg-bg-light);
+  overflow: hidden;
+}
+
+/* Header Banner before Pinned Cards */
+.craft-h-header {
+  padding: 5.5rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  background: var(--sg-bg-light);
+}
+
+.craft-h-eyebrow {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--sg-accent);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.craft-h-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  font-weight: 400;
+  color: #0F201D;
+  line-height: 1.15;
+  margin: 0 auto 0.8rem;
+  max-width: 850px;
+}
+
+.craft-h-title span {
+  color: var(--sg-accent);
+  font-style: italic;
+}
+
+.craft-h-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  color: #4A635F;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Pinned Stage Container (100vh on Desktop) ── */
+.craft-h-pin {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  background: var(--sg-bg-light);
+  background-image: radial-gradient(circle at 50% 50%, rgba(32, 199, 186, 0.15) 0%, transparent 75%);
+}
+
+.craft-h-pin::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(100px, 14vh, 180px);
+  background: linear-gradient(to top, var(--sg-bg-light) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.craft-h-scroll {
+  height: 100%;
+}
+
+.craft-h-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: max-content;
+  gap: 36px;
+  padding: 0 11vw;
+  will-change: transform;
+}
+
+/* ── Individual Service Cards ── */
+.craft-h-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 76vw;
+  max-width: 1050px;
+  height: 74vh;
+  min-height: 500px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--sg-card-border);
+  box-shadow:
+    0 30px 80px -20px rgba(15, 32, 29, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.craft-h-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.craft-h-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Gradient Scrim Overlays (Ensuring clean readable text) */
+.craft-h-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 32, 29, 0.05) 0%, rgba(15, 32, 29, 0.35) 45%, rgba(15, 32, 29, 0.92) 100%);
+}
+
+.craft-h-card[data-tint="jade"] .craft-h-overlay {
+  background: linear-gradient(180deg, rgba(26, 53, 48, 0.05) 0%, rgba(13, 28, 25, 0.35) 45%, rgba(10, 24, 21, 0.94) 100%);
+}
+.craft-h-card[data-tint="gold"] .craft-h-overlay {
+  background: linear-gradient(180deg, rgba(60, 46, 25, 0.05) 0%, rgba(45, 34, 18, 0.35) 45%, rgba(20, 16, 10, 0.94) 100%);
+}
+.craft-h-card[data-tint="teal"] .craft-h-overlay {
+  background: linear-gradient(180deg, rgba(14, 46, 38, 0.05) 0%, rgba(18, 40, 34, 0.35) 45%, rgba(10, 28, 25, 0.94) 100%);
+}
+
+/* Watermark Number */
+.craft-h-num {
+  position: absolute;
+  top: 28px;
+  right: 36px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(56px, 6vw, 88px);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.28);
+  pointer-events: none;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Bottom Card Details */
+.craft-h-info {
+  position: absolute;
+  bottom: 40px;
+  left: 38px;
+  right: 38px;
+  z-index: 2;
+}
+
+.craft-h-label {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #5DE8DC;
+  margin-bottom: 8px;
+}
+
+.craft-h-info h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 2.6vw, 2.7rem);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+}
+
+.craft-h-desc {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.6;
+  max-width: 620px;
+  margin-bottom: 18px;
+}
+
+.craft-h-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--sg-accent);
+  border: 1px solid var(--sg-accent-light);
+  padding: 10px 22px;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(30, 174, 159, 0.35);
+  transition: all 0.25s ease;
+}
+
+.craft-h-card:hover .craft-h-cta-btn {
+  background: #148A7D;
+  box-shadow: 0 6px 20px rgba(30, 174, 159, 0.5);
+  transform: translateY(-1px);
+}
+
+/* ── UI Navigation Hints & Dots ── */
+.craft-h-hint {
+  position: absolute;
+  bottom: 30px;
+  right: 48px;
+  z-index: 2;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #4A635F;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.craft-h-hint span {
+  transition: transform 0.3s ease;
+  color: var(--sg-accent);
+}
+
+.craft-h-dots {
+  position: absolute;
+  bottom: 32px;
+  left: 48px;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+}
+
+.craft-h-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(30, 174, 159, 0.25);
+  transition: all 0.3s ease;
+}
+
+.craft-h-dots span.active {
+  background: var(--sg-accent);
+  transform: scale(1.4);
+  box-shadow: 0 0 8px var(--sg-accent);
+}
+
+/* ── Mobile Viewport Adaptations ── */
+@media (max-width: 900px) {
+  .craft-h-pin {
+    height: auto;
+    min-height: 0;
+    padding: 0 0 4rem;
+  }
+  
+  .craft-h-scroll {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.5rem 0 2rem;
+  }
+  
+  .craft-h-track {
+    padding: 0 5vw;
+    gap: 20px;
+  }
+  
+  .craft-h-card {
+    width: 88vw;
+    height: 520px;
+    scroll-snap-align: center;
+  }
+  
+  .craft-h-info {
+    bottom: 24px;
+    left: 22px;
+    right: 22px;
+  }
+  
+  .craft-h-desc {
+    font-size: 0.86rem;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .craft-h-num {
+    top: 18px;
+    right: 22px;
+    font-size: 48px;
+  }
+  
+  .craft-h-hint {
+    display: none;
+  }
+  
+  .craft-h-dots {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+}

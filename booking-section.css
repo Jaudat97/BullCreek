@@ -1,0 +1,618 @@
+/* ═══════════════════════════════════════════════════════════════════
+   BULL CREEK DENTAL — LIGHT THEME INTERACTIVE BOOKING SECTION
+   Clean, Friendly & Polite Online Calendar & WhatsApp Concierge
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --bk-accent: #1EAE9F;
+  --bk-accent-light: #20C7BA;
+  --bk-accent-rgb: 30, 174, 159;
+  --bk-gold: #C29358;
+  --bk-bg-light: #F4FAF9;
+  --bk-card-bg: #FFFFFF;
+  --bk-border: #E2ECEB;
+  --bk-text: #142825;
+  --bk-muted: #556B67;
+}
+
+/* ── Booking Section Container ── */
+#cta-booking-section {
+  position: relative;
+  width: 100%;
+  background: var(--bk-bg-light);
+  padding: 6.5rem 1.5rem 7.5rem;
+  overflow: hidden;
+  color: var(--bk-text);
+  text-align: center;
+}
+
+/* Background Ambient Lighting */
+.cta-bk-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 30%, rgba(32, 199, 186, 0.15) 0%, transparent 65%),
+              radial-gradient(circle at 80% 70%, rgba(194, 147, 88, 0.08) 0%, transparent 55%);
+}
+
+/* Section Header Typography */
+.cta-bk-label {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--bk-accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-bk-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #0F201D;
+  max-width: 860px;
+  margin: 0 auto 1rem;
+  letter-spacing: -0.01em;
+}
+
+.cta-bk-title span {
+  color: var(--bk-accent);
+  font-style: italic;
+}
+
+.cta-bk-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  color: var(--bk-muted);
+  max-width: 650px;
+  margin: 0 auto 3.2rem;
+  line-height: 1.6;
+}
+
+/* ── Layout Split (Left: Booking Card | Right: Sculpture Video) ── */
+.cta-bk-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta-bk-layout > * {
+  pointer-events: auto;
+}
+
+/* ── Interactive Booking Glass Card ── */
+.cta-bk-card {
+  max-width: 620px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  background: #FFFFFF;
+  border: 1px solid var(--bk-border);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(15, 32, 29, 0.08);
+  padding: clamp(1.6rem, 3.2vw, 2.4rem);
+  flex: none;
+}
+
+/* Right Video Sculpture Box */
+.cta-bk-video-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 58%;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
+  mask-image: linear-gradient(to right, transparent 0%, black 35%);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.cta-bk-video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Step Labels ── */
+.bk-label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--bk-accent);
+  margin-bottom: 0.65rem;
+  font-weight: 700;
+}
+
+.bk-field {
+  margin-bottom: 1.5rem;
+}
+
+/* ── Custom Treatment Dropdown ── */
+.bk-dd {
+  position: relative;
+  width: 100%;
+}
+
+.bk-dd-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 1.2rem;
+  background: #F4FAF9;
+  border: 1px solid var(--bk-border);
+  border-radius: 12px;
+  color: #0F201D;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.bk-dd-btn:hover,
+.bk-dd.open .bk-dd-btn {
+  border-color: var(--bk-accent);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(30, 174, 159, 0.15);
+}
+
+.bk-dd-val[data-placeholder="true"] {
+  color: var(--bk-muted);
+}
+
+.bk-dd-arrow {
+  color: var(--bk-accent);
+  transition: transform 0.25s ease;
+}
+
+.bk-dd.open .bk-dd-arrow {
+  transform: rotate(180deg);
+}
+
+.bk-dd-list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #FFFFFF;
+  border: 1px solid var(--bk-border);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(15, 32, 29, 0.12);
+  list-style: none;
+  padding: 0.4rem 0;
+  max-height: 230px;
+  overflow-y: auto;
+}
+
+.bk-dd.open .bk-dd-list {
+  display: block;
+}
+
+.bk-dd-opt {
+  padding: 0.75rem 1.2rem;
+  font-size: 0.88rem;
+  color: #142825;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bk-dd-opt:hover {
+  background: #F4FAF9;
+  color: var(--bk-accent);
+}
+
+.bk-dd-opt.sel {
+  background: #EBF6F5;
+  color: var(--bk-accent);
+  font-weight: 600;
+}
+
+/* ── Calendar & Timeslots Grid ── */
+.bk-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Calendar Box */
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.cal-head span {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  color: #0F201D;
+  font-weight: 500;
+}
+
+.cal-head button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--bk-border);
+  background: #F4FAF9;
+  color: #556B67;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cal-head button:hover {
+  border-color: var(--bk-accent);
+  color: var(--bk-accent);
+  background: #FFFFFF;
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.cal-weekdays span {
+  text-align: center;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bk-muted);
+  font-weight: 600;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-empty {
+  aspect-ratio: 1;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: #142825;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cal-day:hover:not(.off) {
+  background: #EBF6F5;
+  color: var(--bk-accent);
+}
+
+.cal-day.off {
+  color: #B2C4C1;
+  cursor: not-allowed;
+}
+
+.cal-day.today:not(.active) {
+  box-shadow: inset 0 0 0 1px var(--bk-accent);
+}
+
+.cal-day.active {
+  background: var(--bk-accent) !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(30, 174, 159, 0.35);
+}
+
+/* Timeslots Box */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.slot-hint {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  color: var(--bk-muted);
+  padding: 0.8rem 0;
+}
+
+.slot {
+  padding: 0.75rem 0.5rem;
+  border: 1px solid var(--bk-border);
+  border-radius: 8px;
+  background: #F4FAF9;
+  color: #142825;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.slot:hover {
+  border-color: var(--bk-accent);
+  color: var(--bk-accent);
+  background: #FFFFFF;
+}
+
+.slot.active {
+  background: var(--bk-accent);
+  color: #FFFFFF;
+  border-color: var(--bk-accent);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(30, 174, 159, 0.35);
+}
+
+.bk-summary {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--bk-accent);
+  min-height: 1.2em;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.bk-summary.warn {
+  color: #D9534F;
+}
+
+/* ── Action Buttons ── */
+.bk-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+
+.bk-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  border-radius: 9999px;
+  background: #25D366;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.bk-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+  color: #ffffff;
+}
+
+.bk-confirm {
+  padding: 1rem;
+  border-radius: 9999px;
+  background: var(--bk-accent);
+  color: #FFFFFF;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(30, 174, 159, 0.35);
+}
+
+.bk-confirm:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(30, 174, 159, 0.45);
+}
+
+.cta-note {
+  margin-top: 1.2rem;
+  font-size: 0.75rem;
+  color: var(--bk-muted);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* Success Confirmation Banner */
+.cta-success {
+  display: none;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 1.8rem 2.2rem;
+  background: #FFFFFF;
+  border: 1px solid var(--bk-accent);
+  border-radius: 18px;
+  color: var(--bk-accent);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  box-shadow: 0 15px 40px rgba(15, 32, 29, 0.08);
+  text-align: center;
+}
+
+.cta-success.visible {
+  display: block;
+}
+
+/* ── Interactive Booking Modal Styles ── */
+#booking-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 32, 29, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+#booking-modal.active {
+  display: flex;
+}
+
+.modal-card {
+  background: #FFFFFF;
+  border: 1px solid var(--bk-border);
+  border-radius: 24px;
+  max-width: 500px;
+  width: 100%;
+  padding: 2.4rem;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(15, 32, 29, 0.15);
+  text-align: left;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: #F4FAF9;
+  border: 1px solid var(--bk-border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #556B67;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.modal-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  color: #0F201D;
+  margin-bottom: 0.4rem;
+}
+
+.modal-card p {
+  font-size: 0.9rem;
+  color: var(--bk-muted);
+  margin-bottom: 1.5rem;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #556B67;
+  margin-bottom: 0.4rem;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  background: #F4FAF9;
+  border: 1px solid var(--bk-border);
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: #142825;
+  outline: none;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--bk-accent);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(30, 174, 159, 0.15);
+}
+
+.modal-submit-btn {
+  margin-top: 0.8rem;
+  padding: 1rem;
+  background: var(--bk-accent);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 99px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(30, 174, 159, 0.35);
+  transition: all 0.2s ease;
+}
+
+.modal-submit-btn:hover {
+  background: #148A7D;
+  transform: translateY(-1px);
+}
+
+/* ── Responsive Mobile Optimizations ── */
+@media (max-width: 900px) {
+  .cta-bk-layout {
+    justify-content: center;
+  }
+
+  .cta-bk-video-box {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    margin-top: 2rem;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 25%);
+  }
+}
+
+@media (max-width: 640px) {
+  .bk-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .bk-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .slot-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
